@@ -46,13 +46,14 @@ public class AuthController {
 	
 	
 	@GetMapping("/verify")
-	public ResponseEntity<Void> login(
+	public ResponseEntity<User> verify(
 			@RequestHeader("token") String token
 	) {
 		logger.info("Received verification request");
-		authService.getUserIdFromToken(token); // Verify it exists
+		Long userId = authService.getUserIdFromToken(token); // Verify it exists
+		User user = userService.getUser(userId);
 		
-		return ResponseEntity.status(HttpStatus.OK).build();
+		return ResponseEntity.status(HttpStatus.OK).body(user);
 	}
 	
 	

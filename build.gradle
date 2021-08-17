@@ -16,7 +16,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 group 'com.patrickubelhor'
-version '1.0.3'
+version '1.0.4'
 
 sourceCompatibility = 1.16
 targetCompatibility = 1.16
